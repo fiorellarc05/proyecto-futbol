@@ -66,6 +66,12 @@ export class EditPage implements OnInit {
             validators: [Validators.required, Validators.minLength(1)],
           }
         ),
+        eventos: new FormControl(this.partidos.eventos,
+          {
+            updateOn: "blur",
+            validators: [Validators.required, Validators.minLength(1)],
+          }
+        ),
       });
   
       this.formPartidoEdit.value.id_part = this.partidos.id_part;
@@ -82,7 +88,8 @@ export class EditPage implements OnInit {
         this.formPartidoEdit.value.eq_visita,
         this.formPartidoEdit.value.fecha_part,
         this.formPartidoEdit.value.marcador_casa,
-        this.formPartidoEdit.value.marcador_visita
+        this.formPartidoEdit.value.marcador_visita,
+        this.formPartidoEdit.value.eventos
       );
       this.formPartidoEdit.reset();
       this.router.navigate(['./partidos']);

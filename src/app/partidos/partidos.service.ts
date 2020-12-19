@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { partidos, eventos } from './partidos.model';
+import { partidos } from './partidos.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,11 +49,10 @@ export class partidosService {
     );
   }
 
-  
-    public ocultar1: boolean = false;
-    accion1(){
+  public ocultar1: boolean = false;
+  accion1() {
     this.ocultar1 = !this.ocultar1;
-    }
+  }
 
   detenerPartido(partidoId: number) {
     return {
@@ -65,8 +64,6 @@ export class partidosService {
     };
   }
 
-
-  
   addPartido(
     id_part: number,
     eq_casa: string,

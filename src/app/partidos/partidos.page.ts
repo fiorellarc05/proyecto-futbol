@@ -1,6 +1,6 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { partidosService } from './partidos.service';
-import { partidos, eventos } from './partidos.model';
+import { partidos } from './partidos.model';
 import { Router } from "@angular/router";
 
 @Component({

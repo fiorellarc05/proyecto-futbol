@@ -2,12 +2,12 @@
   <ion-toolbar>
     <ion-buttons slot="primary">
       <ion-button [routerLink]="['./add' ]" class="button1">
-        <ion-icon name="duplicate-outline"></ion-icon>
-        Añadir Partido
+        <ion-icon name="add-outline"></ion-icon>
+        Añadir
       </ion-button>
     </ion-buttons>
     <ion-title>
-      APP DE PARTIDOS DE FÚTBOL INGLÉS
+      FÚTBOL INGLÉS
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,7 +15,8 @@
 <ion-content padding class="card">
   <div id="container">
     <ion-card *ngFor="let partidos of partidos">
-      <img src="assets/img/campo_fut.jpg" height="150" width="200" />
+      <br>
+      <img src="assets/img/equipos.jpg" height="100" width="200" />
       <ion-card-content>
         <ion-card-title>
           {{ partidos.eq_casa }} vs {{ partidos.eq_visita }}
@@ -24,22 +25,25 @@
       {{ partidos.fecha_part }}
       <br>
       <ion-button [routerLink]="['./', partidos.id_part]" class="button2">
-        <ion-icon name="eye-outline"></ion-icon>
-        Ver detalles
+        <ion-icon name="locate-outline"></ion-icon>
+        Detalles
       </ion-button>
-      <ion-button outline (click)="update(partidos.id_part)"  class="button3">
+      <ion-button outline (click)="update(partidos.id_part)" class="button3">
         <ion-icon name="create-outline"></ion-icon>
-        Editar Partido
+        Editar
       </ion-button>
-      <button ion-button block (click)="accion1()"> Detener Partido </button>
-<ion-card *ngIf="ocultar1">
-   <ion-card-header>
-     El partido fue detenido             
-   </ion-card-header>
-   <ion-card-content>
-      {{ partidos.eq_casa }} {{ partidos.marcador_casa}} vs {{ partidos.marcador_visita}} {{ partidos.eq_visita }}  
-   </ion-card-content>
-</ion-card>
+      <ion-button outline block (click)="accion1()" class="button4">
+        <ion-icon name="stopwatch-outline"></ion-icon>
+        Detener
+      </ion-button>
+      <ion-card *ngIf="ocultar1">
+        <ion-card-header>
+          El partido finalizó
+        </ion-card-header>
+        <ion-card-content>
+          {{ partidos.eq_casa }} {{ partidos.marcador_casa}} vs {{ partidos.marcador_visita}} {{ partidos.eq_visita }}
+        </ion-card-content>
+      </ion-card>
     </ion-card>
   </div>
 </ion-content>

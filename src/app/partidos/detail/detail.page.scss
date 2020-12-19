@@ -1,0 +1,26 @@
+//Game detail page style
+
+ion-title{
+    color:  #6a040f;
+    font-size: large;
+}
+
+ion-content{
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier;
+}
+
+ion-back-button{
+    --color: #80ffdb;
+}
+
+ion-button{
+    --color: #80ffdb; 
+}
+
+.button{
+    --background: #6a040f;
+    --color: #80ffdb;
+    font-family: 'Courier New', Courier, monospace;
+}
