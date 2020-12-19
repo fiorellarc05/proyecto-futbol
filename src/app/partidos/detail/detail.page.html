@@ -1,0 +1,42 @@
+<!--Game Detail-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/partidos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ partidos.id_part}}</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="detenerPartido()">
+        <ion-icon name="pause-outline" ></ion-icon>
+        detener partido
+      </ion-button>
+    </ion-buttons>
+
+    
+  
+    <ion-buttons slot="primary">
+      <ion-button (click)="deletePartido()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding align="center">
+  <br>
+  <div padding>Partido:
+    <br>
+    {{partidos.eq_casa}} vs {{partidos.eq_visita}}
+  </div>
+  <br>
+  <div padding>Fecha: {{partidos.fecha_part}} </div>
+  <br>
+  <div padding>Marcador: {{partidos.marcador_casa}} - {{partidos.marcador_visita}} </div>
+  <br>
+  <div padding>Eventos: 
+    <br>
+    {{partidos.eventos}}
+  </div>
+</ion-content>

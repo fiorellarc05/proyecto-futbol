@@ -1,0 +1,77 @@
+<!--Update Form-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/partidos"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center">
+      Editar Partido
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="editPartido()" [disabled]="!formPartidoEdit.valid">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formPartidoEdit">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Id Partido:</ion-label>
+            <ion-input type="number" formControlName="id_part"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Equipo de casa:</ion-label>
+            <ion-input type="text" formControlName="eq_casa"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Equipo de visita:</ion-label>
+            <ion-input type="text" formControlName="eq_visita"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Fecha del partido:</ion-label>
+            <ion-input type="text" formControlName="fecha_part"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Marcador de casa:</ion-label>
+            <ion-input type="number" formControlName="marcador_casa"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Marcador de visita:</ion-label>
+            <ion-input type="number" formControlName="marcador_visita"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

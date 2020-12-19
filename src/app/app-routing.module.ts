@@ -11,6 +11,27 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'partidos',
+    children:[
+      {
+        path: '',
+        loadChildren: './partidos/partidos.module#PartidosPageModule'
+      },
+      {
+        path: 'add',
+        loadChildren: './partidos/add/add.module#AddPageModule' 
+      },
+      {
+        path: ':partidoId',
+        loadChildren: './partidos/detail/detail.module#DetailPageModule'
+      },
+      {
+        path: "edit/:partidoId",
+        loadChildren: "./partidos/edit/edit.module#EditPageModule",
+      },
+    ]
+  },
 ];
 
 @NgModule({

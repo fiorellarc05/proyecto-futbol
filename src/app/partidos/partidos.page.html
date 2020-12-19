@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['./add' ]" class="button1">
+        <ion-icon name="duplicate-outline"></ion-icon>
+        Añadir Partido
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      APP DE PARTIDOS DE FÚTBOL INGLÉS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="card">
+  <div id="container">
+    <ion-card *ngFor="let partidos of partidos">
+      <img src="assets/img/campo_fut.jpg" height="150" width="200" />
+      <ion-card-content>
+        <ion-card-title>
+          {{ partidos.eq_casa }} vs {{ partidos.eq_visita }}
+        </ion-card-title>
+      </ion-card-content>
+      {{ partidos.fecha_part }}
+      <br>
+      <ion-button [routerLink]="['./', partidos.id_part]" class="button2">
+        <ion-icon name="eye-outline"></ion-icon>
+        Ver detalles
+      </ion-button>
+      <ion-button outline (click)="update(partidos.id_part)"  class="button3">
+        <ion-icon name="create-outline"></ion-icon>
+        Editar Partido
+      </ion-button>
+      <button ion-button block (click)="accion1()"> Detener Partido </button>
+<ion-card *ngIf="ocultar1">
+   <ion-card-header>
+     El partido fue detenido             
+   </ion-card-header>
+   <ion-card-content>
+      {{ partidos.eq_casa }} {{ partidos.marcador_casa}} vs {{ partidos.marcador_visita}} {{ partidos.eq_visita }}  
+   </ion-card-content>
+</ion-card>
+    </ion-card>
+  </div>
+</ion-content>
