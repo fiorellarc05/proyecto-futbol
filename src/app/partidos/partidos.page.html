@@ -22,7 +22,7 @@
           {{ partidos.eq_casa }} vs {{ partidos.eq_visita }}
         </ion-card-title>
       </ion-card-content>
-      {{ partidos.fecha_part }}
+      {{ partidos.marcador_casa }} - {{partidos.marcador_visita}}
       <br>
       <ion-button [routerLink]="['./', partidos.id_part]" class="button2">
         <ion-icon name="locate-outline"></ion-icon>

@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { partidos } from './partidos.model';
+import { partidos, eventos } from './partidos.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class partidosService {
+  private eventos: eventos[] = [
+    {
+      id_evento: 1,
+      minuto: 1,
+      descrip_evento: "Comenzó el partido"
+    },
+  ];
   private partidos: partidos[] = [
     {
       id_part: 1,
@@ -14,7 +21,7 @@ export class partidosService {
       fecha_part: "13 diciembre 2020",
       marcador_casa: 2,
       marcador_visita: 2,
-      eventos: "5 amarillas"
+      eventos: this.eventos
     },
     {
       id_part: 2,
@@ -23,7 +30,7 @@ export class partidosService {
       fecha_part: "15 diciembre 2020",
       marcador_casa: 1,
       marcador_visita: 4,
-      eventos: "1 expulsado"
+      eventos: this.eventos
     },
   ];
 
@@ -31,6 +38,7 @@ export class partidosService {
 
   getAll() {
     return [...this.partidos];
+    //return [...this.eventos];
   }
   getPartido(partidoId: number) {
     return {
@@ -40,7 +48,17 @@ export class partidosService {
         }
       )
     };
+    /*getEvento(eventoId: number) {
+      return {
+        ...this.eventos.find(
+          eventos => {
+            return eventos.id_evento === eventoId;
+          }
+        )
+      }
+    }*/
   }
+
   deletePartido(partidoId: number) {
     this.partidos = this.partidos.filter(
       partidos => {
@@ -80,7 +98,7 @@ export class partidosService {
       fecha_part: fecha_part,
       marcador_casa: marcador_casa,
       marcador_visita: marcador_visita,
-      eventos: eventos
+      eventos: this.eventos
     }
     this.partidos.push(partidos);
   }
@@ -101,8 +119,21 @@ export class partidosService {
     this.partidos[index].fecha_part = fecha_part;
     this.partidos[index].marcador_casa = marcador_casa;
     this.partidos[index].marcador_visita = marcador_visita;
-    this.partidos[index].eventos = eventos;
+    this.partidos[index].eventos = this.eventos;
 
     console.log(this.partidos);
   }
+  
+  /*addEventos(
+    id_evento: number,
+    minuto: number,
+    descrip_evento: string,
+  ) {
+    const product: eventos = {
+      id_evento: id_evento,
+      minuto: minuto,
+      descrip_evento: descrip_evento,
+    }
+    this.eventos.push(eventos);
+  }*/
 }

@@ -5,5 +5,11 @@ export interface partidos{
     fecha_part: string;
     marcador_casa: number;
     marcador_visita: number;
-    eventos: string;   
+    eventos: eventos[]; 
+}
+
+export interface eventos{
+    id_evento: number;
+    minuto: number;
+    descrip_evento: string;
 }

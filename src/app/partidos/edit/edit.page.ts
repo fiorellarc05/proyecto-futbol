@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { partidosService } from "../partidos.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { partidos } from '../partidos.model';
+import { partidos, eventos } from '../partidos.model';
 
 @Component({
   selector: 'app-edit',

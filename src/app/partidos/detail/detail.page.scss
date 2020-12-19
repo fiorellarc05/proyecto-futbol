@@ -15,11 +15,17 @@ ion-back-button{
     --color: #80ffdb;
 }
 
-ion-button{
+.button1{
     --color: #80ffdb; 
 }
 
-.button{
+.button2{
+    --background: #6a040f;
+    --color: #80ffdb;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button3{
     --background: #6a040f;
     --color: #80ffdb;
     font-family: 'Courier New', Courier, monospace;

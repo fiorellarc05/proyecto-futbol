@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { partidosService } from '../partidos.service';
-import { partidos } from '../partidos.model';
+import { partidos, eventos } from '../partidos.model';
 
 @Component({
   selector: 'app-detail',
@@ -80,6 +80,10 @@ export class DetailPage implements OnInit {
       }
     );
     
+  }
+
+  addEventos(){
+
   }
 
 }

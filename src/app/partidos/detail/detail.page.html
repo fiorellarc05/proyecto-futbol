@@ -8,38 +8,43 @@
     <ion-title>{{ partidos.id_part}}</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button (click)="deletePartido()">
+      <ion-button (click)="deletePartido()" class="button1">
         <ion-icon name="trash" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-button (click)="detenerPartido()" class="button">
+<ion-button (click)="detenerPartido()" class="button2">
   <ion-icon name="pause-outline"></ion-icon>
     Finalizar partido
 </ion-button>
 
+<ion-button (click)="addEventos()" class="button3">
+  <ion-icon name="football-outline"></ion-icon>
+    Añadir Eventos
+</ion-button>
+
 <ion-content padding>
   <br>
-  <div padding>Equipos:
+  <div padding> <strong>Equipos:</strong>
     <br>
     {{partidos.eq_casa}} vs {{partidos.eq_visita}}
   </div>
   <br>
-  <div padding>Fecha:
+  <div padding><strong>Fecha:</strong>
     <br>
     {{partidos.fecha_part}}
   </div>
   <br>
-  <div padding>Marcador:
+  <div padding> <strong>Marcador:</strong>
     <br>
     {{partidos.marcador_casa}} - {{partidos.marcador_visita}}
   </div>
-  <br>
-  <div padding>Eventos:
-    <br>
-    {{partidos.eventos}}
+  <div padding *ngFor="let eventos of partidos.eventos">
+    <p> <strong>Eventos:</strong>
+      <br>
+      {{ eventos.descrip_evento }}</p>
   </div>
   <br>
 </ion-content>
