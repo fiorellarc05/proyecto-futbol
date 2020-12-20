@@ -29,6 +29,7 @@ export class EditPage implements OnInit {
         this.partidos = this.servicePartidos.getPartido(partidoId);
       });
   
+      //validate the inputs
       this.formPartidoEdit = new FormGroup({
         id_part: new FormControl(this.partidos.id_part,
           {
@@ -78,6 +79,7 @@ export class EditPage implements OnInit {
   
     }
   
+    //edit game
     editPartido() {
       if (!this.formPartidoEdit.valid) {
         return;

@@ -23,12 +23,16 @@ const routes: Routes = [
         loadChildren: './partidos/add/add.module#AddPageModule' 
       },
       {
-        path: ':partidoId',
+        path: 'detail/:partidoId',
         loadChildren: './partidos/detail/detail.module#DetailPageModule'
       },
       {
         path: "edit/:partidoId",
         loadChildren: "./partidos/edit/edit.module#EditPageModule",
+      },
+      {
+        path: 'eventos/:partidoId',
+        loadChildren: "./partidos/eventos/eventos.module#EventosPageModule",
       },
     ]
   },

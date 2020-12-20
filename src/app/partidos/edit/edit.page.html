@@ -2,12 +2,15 @@
 
 <ion-header>
   <ion-toolbar>
+    <!--Back to all games-->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/partidos"></ion-back-button>
     </ion-buttons>
     <ion-title align="center">
       Editar Partido
     </ion-title>
+
+    <!--Save the updates-->
     <ion-buttons slot="primary">
       <ion-button (click)="editPartido()" [disabled]="!formPartidoEdit.valid">
         <ion-icon name="bookmark-outline"></ion-icon>
@@ -16,6 +19,7 @@
   </ion-toolbar>
 </ion-header>
 
+<!--Edit form-->
 <ion-content>
   <form [formGroup]="formPartidoEdit">
     <ion-grid>

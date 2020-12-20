@@ -1,13 +1,14 @@
 <!--Home page-->
 
 <ion-content [fullscreen]="true" class="cont">
-  <img src="assets/img/campo_fut.jpg"/>
+  <img src="assets/img/campo_fut.jpg" />
   <br>
   <ion-title>BIENVENIDO</ion-title>
-  <br> <br> 
-  <p>App de fútblo inglés</p>
-  <p>¡Mira todos los eventos que ocurren en cada partido!</p>
-  <br>
-  <ion-button clear>Ver partidos</ion-button>
+  <br> <br> <br>
+  <ion-text>App de fútbol inglés</ion-text>
+  <br> <br>
+  <ion-text>¡Mira todos los eventos que ocurren en cada partido!</ion-text>
+  <br> <br>
+  <!--Go to all the games-->
+  <ion-button (click)="principal()" clear>Ver partidos</ion-button>
 </ion-content>
-

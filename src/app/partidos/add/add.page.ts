@@ -20,6 +20,7 @@ export class AddPage implements OnInit {
   ) { }
 
 
+  //validate the inputs
   ngOnInit() {
     this.formPartidoAdd = new FormGroup({
       id_part: new FormControl(
@@ -74,6 +75,7 @@ export class AddPage implements OnInit {
     });
   }
   
+  //add game
   addPartido() {
     if (!this.formPartidoAdd.valid) {
       return;

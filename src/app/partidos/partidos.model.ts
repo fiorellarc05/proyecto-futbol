@@ -9,7 +9,9 @@ export interface partidos{
 }
 
 export interface eventos{
+    id_part: number;
     id_evento: number;
     minuto: number;
     descrip_evento: string;
+    equipo: string;
 }

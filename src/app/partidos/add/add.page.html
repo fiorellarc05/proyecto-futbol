@@ -1,4 +1,4 @@
-<!--Add Form-->
+<!--Add Game Form-->
 
 <ion-header>
   <ion-toolbar>
@@ -9,6 +9,7 @@
       Añadir partido
     </ion-title>
     <ion-buttons slot="primary">
+      <!--Add game-->
       <ion-button (click)="addPartido()" [disabled]="!formPartidoAdd.valid">
         <ion-icon name="checkmark-done-outline"></ion-icon>
       </ion-button>
@@ -16,6 +17,7 @@
   </ion-toolbar>
 </ion-header>
 
+<!--Add game form-->
 <ion-content>
   <form [formGroup]="formPartidoAdd">
     <ion-grid>
@@ -72,24 +74,6 @@
           </ion-item>
         </ion-col>
       </ion-row>
-
-      <ion-row>
-        <ion-col size-sm="6" offset-sm="3">
-          <ion-item>
-            <ion-label position="floating">Eventos del partido:</ion-label>
-            <ion-textarea autocomplete autocorrect formControlName="eventos">
-            </ion-textarea>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <ion-row *ngIf="!formPartidoAdd.get('eventos').valid &&
-      formPartidoAdd.touched">
-        <ion-col size-sm="6" offset-sm="3">
-          <p>Debe haber mínimo un evento en el partido</p>
-        </ion-col>
-      </ion-row>
-
     </ion-grid>
   </form>
 </ion-content>

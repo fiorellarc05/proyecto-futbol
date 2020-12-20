@@ -2,11 +2,13 @@
 
 <ion-header>
   <ion-toolbar>
+    <!--Back to all games-->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/partidos"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ partidos.id_part}}</ion-title>
 
+    <!--Delete a game-->
     <ion-buttons slot="primary">
       <ion-button (click)="deletePartido()" class="button1">
         <ion-icon name="trash" slot="icon-only"></ion-icon>
@@ -15,16 +17,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-button (click)="detenerPartido()" class="button2">
-  <ion-icon name="pause-outline"></ion-icon>
-    Finalizar partido
-</ion-button>
-
-<ion-button (click)="addEventos()" class="button3">
+<!--Add events-->
+<ion-button (click)="addEvento(partidos.id_part)" class="button3">
   <ion-icon name="football-outline"></ion-icon>
-    Añadir Eventos
+  Añadir Eventos
 </ion-button>
 
+<!--Details-->
 <ion-content padding>
   <br>
   <div padding> <strong>Equipos:</strong>
@@ -41,10 +40,27 @@
     <br>
     {{partidos.marcador_casa}} - {{partidos.marcador_visita}}
   </div>
-  <div padding *ngFor="let eventos of partidos.eventos">
-    <p> <strong>Eventos:</strong>
-      <br>
-      {{ eventos.descrip_evento }}</p>
-  </div>
+
+  <!--Events-->
+  <ion-content padding>
+    <div id="container">
+      <ion-card *ngFor="let partido of partidos.eventos" class="card">
+        <ng-container *ngIf="partido.id_part === partidos.id_part">
+          <ion-item>
+            <ion-label>Minuto: {{partido.minuto}}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Evento: {{partido.descrip_evento}}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Equipo: {{partido.equipo}}
+            </ion-label>
+          </ion-item>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-content>
   <br>
 </ion-content>

@@ -9,22 +9,29 @@ import { Router } from "@angular/router";
   styleUrls: ['./partidos.page.scss'],
 })
 export class PartidosPage implements OnInit {
-  @Input() id_part: number;
+  //@Input() id_part: number;
   partidos: partidos[];
   constructor(private partidosServices: partidosService,
   private router: Router) { }
 
   ngOnInit() {
-  }
-
-  ionViewWillEnter() {
-    console.log("Se obtuvo la lista");
     this.partidos = this.partidosServices.getAll();
   }
 
+  ionViewWillEnter() {
+    this.partidos = this.partidosServices.getAll();
+  }
+
+  //update a game
   update(code: number) {
     this.router.navigate(["/partidos/edit/" + code]);
   }
+
+  //game details
+  viewDetails(code: number) {
+    this.router.navigate(["/partidos/detail/" + code]);
+  }
+
   public ocultar1: boolean = false;
   accion1(){
   this.ocultar1 = !this.ocultar1;

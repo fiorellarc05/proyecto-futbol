@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { PartidosService } from './partidos.service';
+import { partidosService } from './partidos.service';
 
 describe('PartidosService', () => {
-  let service: PartidosService;
+  let service: partidosService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PartidosService);
+    service = TestBed.inject(partidosService);
   });
 
   it('should be created', () => {

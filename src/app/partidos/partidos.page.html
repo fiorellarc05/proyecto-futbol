@@ -12,7 +12,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="card">
+<ion-content padding>
   <div id="container">
     <ion-card *ngFor="let partidos of partidos">
       <br>
@@ -24,7 +24,7 @@
       </ion-card-content>
       {{ partidos.marcador_casa }} - {{partidos.marcador_visita}}
       <br>
-      <ion-button [routerLink]="['./', partidos.id_part]" class="button2">
+      <ion-button  (click)="viewDetails(partidos.id_part)" class="button2">
         <ion-icon name="locate-outline"></ion-icon>
         Detalles
       </ion-button>
@@ -41,7 +41,7 @@
           El partido finalizó
         </ion-card-header>
         <ion-card-content>
-          {{ partidos.eq_casa }} {{ partidos.marcador_casa}} vs {{ partidos.marcador_visita}} {{ partidos.eq_visita }}
+          {{ partidos.eq_casa }} {{ partidos.marcador_casa}} vs {{ partidos.eq_visita }} {{ partidos.marcador_visita}}
         </ion-card-content>
       </ion-card>
     </ion-card>

@@ -1,0 +1,65 @@
+<!--Add Event Form-->
+
+<ion-header>
+  <ion-toolbar>
+    <!--Back to all games-->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/partidos/detail"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Añadir eventos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--Event form-->
+<ion-content>
+  <form [formGroup]="formEventoAdd">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Id Evento:</ion-label>
+            <ion-input type="number" formControlName="id_evento"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Minuto:</ion-label>
+            <ion-input type="number" formControlName="minuto"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Evento:</ion-label>
+            <ion-select interface="popover" type="text" formControlName="descrip_evento">
+              <ion-select-option value="Gol">Gol</ion-select-option>
+              <ion-select-option value="Tarjeta Amarilla">Tarjeta Amarilla</ion-select-option>
+              <ion-select-option value="Tarjeta Roja">Tarjeta Roja</ion-select-option>
+              <ion-select-option value="Penal">Penal</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Equipo:</ion-label>
+            <ion-select interface="popover" type="text" formControlName="equipo">
+              <ion-select-option value={{partidos.eq_casa}}>{{partidos.eq_casa}}</ion-select-option>
+              <ion-select-option value={{partidos.eq_visita}}>{{partidos.eq_visita}}</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

@@ -6,14 +6,20 @@ import { partidos, eventos } from './partidos.model';
 })
 
 export class partidosService {
+  //events array
   private eventos: eventos[] = [
     {
+      id_part: 1,
       id_evento: 1,
       minuto: 1,
-      descrip_evento: "Comenzó el partido"
+      descrip_evento: "Comenzó el partido",
+      equipo: "Ambos"
     },
   ];
+
   private partidos: partidos[] = [
+
+    //games array
     {
       id_part: 1,
       eq_casa: "Manchester City",
@@ -23,23 +29,15 @@ export class partidosService {
       marcador_visita: 2,
       eventos: this.eventos
     },
-    {
-      id_part: 2,
-      eq_casa: "Everton",
-      eq_visita: "Manchester United",
-      fecha_part: "15 diciembre 2020",
-      marcador_casa: 1,
-      marcador_visita: 4,
-      eventos: this.eventos
-    },
   ];
 
   constructor() { }
 
+  // get all elements to array
   getAll() {
     return [...this.partidos];
-    //return [...this.eventos];
   }
+  //get elements for ID
   getPartido(partidoId: number) {
     return {
       ...this.partidos.find(
@@ -48,17 +46,9 @@ export class partidosService {
         }
       )
     };
-    /*getEvento(eventoId: number) {
-      return {
-        ...this.eventos.find(
-          eventos => {
-            return eventos.id_evento === eventoId;
-          }
-        )
-      }
-    }*/
   }
 
+  //delete game
   deletePartido(partidoId: number) {
     this.partidos = this.partidos.filter(
       partidos => {
@@ -72,6 +62,7 @@ export class partidosService {
     this.ocultar1 = !this.ocultar1;
   }
 
+  //end game
   detenerPartido(partidoId: number) {
     return {
       ...this.partidos.find(
@@ -82,6 +73,7 @@ export class partidosService {
     };
   }
 
+  //add games to array
   addPartido(
     id_part: number,
     eq_casa: string,
@@ -102,6 +94,8 @@ export class partidosService {
     }
     this.partidos.push(partidos);
   }
+
+  //edit game
   editPartido(
     id_part: number,
     eq_casa: string,
@@ -124,16 +118,31 @@ export class partidosService {
     console.log(this.partidos);
   }
   
-  /*addEventos(
+  //add events to array
+  addEvento(
+    id_part: number,
     id_evento: number,
     minuto: number,
     descrip_evento: string,
+    equipo: string,
   ) {
-    const product: eventos = {
+    const eventos: eventos = {
+      id_part: id_part,
       id_evento: id_evento,
       minuto: minuto,
       descrip_evento: descrip_evento,
+      equipo: equipo
+    }
+
+    if (eventos.descrip_evento == "Gol") {
+      let index = this.partidos.map((x) => x.id_part).indexOf(id_part); 
+
+      if (this.partidos[index].eq_casa == eventos.equipo) {
+        this.partidos[index].marcador_casa++;
+      } else {
+        this.partidos[index].marcador_visita++;
+      }
     }
     this.eventos.push(eventos);
-  }*/
+  }
 }
